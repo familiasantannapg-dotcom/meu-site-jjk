@@ -1,0 +1,484 @@
+/* Reset e Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #050508;
+    color: #ffffff;
+    min-height: 100vh;
+    padding-bottom: 100px;
+}
+
+/* BARRA DE NAVEGAÇÃO */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(13, 13, 22, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #1a1a2e;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #a970ff;
+    text-shadow: 0 0 10px rgba(169, 112, 255, 0.5);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #8a8a9e;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px #a970ff;
+}
+
+/* HEADER */
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #120824 0%, #050508 100%);
+}
+
+header h1 {
+    font-size: 3rem;
+    color: #a970ff;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 20px rgba(169, 112, 255, 0.5);
+}
+
+header p {
+    color: #6a6a85;
+    margin-top: 10px;
+    font-size: 1.1rem;
+}
+
+/* CONTAINER DOS CARDS */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin-bottom: 80px;
+}
+
+/* CARDS E ANIMAÇÕES */
+.card {
+    background-color: #0e0e18;
+    border: 2px solid #1c1c2e;
+    border-radius: 20px;
+    width: 300px;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+.card-imagem {
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 2px solid #1c1c2e;
+    filter: grayscale(40%);
+    transition: filter 0.4s;
+}
+
+.card:hover .card-imagem {
+    filter: grayscale(0%);
+}
+
+.card-info {
+    padding: 25px;
+    text-align: center;
+}
+
+.card-info h2 {
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+}
+
+.status {
+    font-size: 0.85rem;
+    color: #6a6a85;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* CAIXAS DE EXPANSÃO DE DOMÍNIO */
+.dialogo-css {
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%) translateY(50px);
+    width: 90%;
+    max-width: 850px;
+    background: rgba(8, 8, 14, 0.95);
+    border-radius: 16px;
+    padding: 30px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 100;
+}
+
+.dialogo-css h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.dialogo-css p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #d1d1e0;
+}
+
+/* Identidades Visuais Únicas */
+#card-gojo:hover { border-color: #a970ff; box-shadow: 0 0 30px rgba(169, 112, 255, 0.3); }
+.fala-gojo h3 { color: #a970ff; text-shadow: 0 0 10px #a970ff; }
+.fala-gojo { border: 3px solid #a970ff; box-shadow: 0 0 40px rgba(169, 112, 255, 0.4); }
+
+#card-sukuna:hover { border-color: #ff4a4a; box-shadow: 0 0 30px rgba(255, 74, 74, 0.3); }
+.fala-sukuna h3 { color: #ff4a4a; text-shadow: 0 0 10px #ff4a4a; }
+.fala-sukuna { border: 3px solid #ff4a4a; box-shadow: 0 0 40px rgba(255, 74, 74, 0.4); }
+
+/* Ativação do Domínio */
+.card:focus .dialogo-css {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* SEÇÃO DE MISSÕES (INTERATIVIDADE CSS PURO) */
+.missoes-container {
+    max-width: 800px;
+    margin: 60px auto 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.missoes-container h2 {
+    font-size: 2rem;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.sub-aviso {
+    color: #6a6a85;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+.missao-card {
+    background-color: #0e0e18;
+    border: 1px solid #1c1c2e;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: left;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+}
+
+.missao-card h3 {
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.missao-card .pergunta {
+    color: #a970ff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Resposta Oculta que aparece no Hover */
+.resposta-oculta {
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.missao-card:hover {
+    border-color: #6f42c1;
+}
+
+/* Revelando a resposta quando passa o mouse */
+.missao-card:hover .resposta-oculta {
+    max-height: 100px;
+    opacity: 1;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #333;
+}
+
+.badge {
+    background-color: #6f42c1;
+    color: white;
+    padding: 3px 8px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+/* ==========================================
+   TELA DE CARREGAMENTO (CSS PURO)
+   ========================================== */
+
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #050508;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Garante que fica por cima de tudo */
+    
+    /* Faz a tela de loading sumir sozinha após 3 segundos */
+    animation: sumirLoader 0.5s ease 3s forwards;
+}
+
+/* O Círculo Mágico que gira */
+.loader-circulo {
+    width: 70px;
+    height: 70px;
+    border: 5px solid #1c1c2e;
+    border-top: 5px solid #a970ff; /* Cor roxa do Gojo */
+    border-bottom: 5px solid #ff4a4a; /* Cor vermelha do Sukuna */
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(169, 112, 255, 0.4);
+    
+    /* Aplica a animação de girar infinitamente */
+    animation: girar 1s linear infinite;
+}
+
+/* Texto piscando */
+.loader-texto {
+    margin-top: 25px;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8a8a9e;
+    animation: pulsar 1.5s ease-in-out infinite;
+}
+
+/* DEFINIÇÕES DAS ANIMAÇÕES (KEYFRAMES) */
+
+/* 1. Animação para girar o círculo */
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 2. Animação para fazer o texto piscar suavemente */
+@keyframes pulsar {
+    0%, 100% { opacity: 0.4; text-shadow: 0 0 5px rgba(255,255,255,0); }
+    50% { opacity: 1; color: #fff; text-shadow: 0 0 10px #a970ff; }
+}
+
+/* 3. Animação que esconde e desativa a tela de loading após o tempo acabar */
+@keyframes sumirLoader {
+    0% { opacity: 1; visibility: visible; }
+    100% { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+/* ==========================================
+   PARTÍCULAS DE ENERGIA AMALDIÇOADA
+   ========================================== */
+
+/* Caixa que segura as partículas no fundo */
+.energia-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Garante que você consegue clicar nos cards por cima */
+    z-index: 1; /* Fica atrás dos cards, mas acima do fundo preto */
+}
+
+/* Estilo base de cada bolinha de energia */
+.particula {
+    position: absolute;
+    bottom: -50px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(169,112,255,0.8) 0%, rgba(111,66,193,0) 70%);
+    filter: blur(3px);
+    animation: subirEnergia 8s infinite linear;
+}
+
+/* Partícula 1: Roxa, média, sobe pela esquerda */
+.p1 {
+    width: 30px;
+    height: 30px;
+    left: 15%;
+    animation-duration: 7s;
+    animation-delay: 1s;
+}
+
+/* Partícula 2: Vermelha, grande, sobe pelo meio */
+.p2 {
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    background: radial-gradient(circle, rgba(255,74,74,0.6) 0%, rgba(255,0,0,0) 70%);
+    animation-duration: 10s;
+    animation-delay: 3s;
+}
+
+/* Partícula 3: Roxa/Azul, pequena, sobe pela direita */
+.p3 {
+    width: 20px;
+    height: 20px;
+    left: 80%;
+    animation-duration: 6s;
+    animation-delay: 0s;
+}
+
+/* ANIMAÇÃO DAS PARTÍCULAS SUBINDO */
+@keyframes subirEnergia {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+    }
+}
+/* Títulos das Categorias */
+.categoria-titulo {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 40px 0 20px 0;
+    text-align: left;
+    font-weight: bold;
+}
+.categoria-titulo.azul { color: #00d2ff; text-shadow: 0 0 10px rgba(0,210,255,0.3); }
+.categoria-titulo.roxo { color: #a970ff; text-shadow: 0 0 10px rgba(169,112,255,0.3); }
+.categoria-titulo.vermelho { color: #ff4a4a; text-shadow: 0 0 10px rgba(255,74,74,0.3); }
+
+/* Variações de cores das bordas e Badges */
+.missao-card.grau-2:hover { border-color: #00d2ff; box-shadow: 0 0 15px rgba(0,210,255,0.2); }
+.b-azul { background-color: #00d2ff; color: #000; }
+
+.missao-card.grau-1:hover { border-color: #a970ff; box-shadow: 0 0 15px rgba(169,112,255,0.2); }
+.b-roxo { background-color: #a970ff; color: #fff; }
+
+.missao-card.grau-especial:hover { border-color: #ff4a4a; box-shadow: 0 0 15px rgba(255,74,74,0.2); }
+.b-vermelho { background-color: #ff4a4a; color: #fff; }
+
+/* ==========================================
+   ANIMAÇÃO DOS CARDS DO QUIZ SURGIREM SUBINDO
+   ========================================== */
+
+/* Aplica a animação base para todos os cards de missão */
+.missao-card {
+    opacity: 0; /* Começam invisíveis */
+    transform: translateY(30px); /* Começam 30px mais abaixo */
+    animation: surgirSubindo 0.8s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+}
+
+/* Criando o efeito cascata: cada card espera um pouquinho mais para subir */
+.missao-card:nth-child(2)  { animation-delay: 3.2s; }
+.missao-card:nth-child(3)  { animation-delay: 3.4s; }
+.missao-card:nth-child(4)  { animation-delay: 3.6s; }
+.missao-card:nth-child(6)  { animation-delay: 3.8s; }
+.missao-card:nth-child(7)  { animation-delay: 4.0s; }
+.missao-card:nth-child(8)  { animation-delay: 4.2s; }
+.missao-card:nth-child(9)  { animation-delay: 4.4s; }
+.missao-card:nth-child(11) { animation-delay: 4.6s; }
+.missao-card:nth-child(12) { animation-delay: 4.8s; }
+.missao-card:nth-child(13) { animation-delay: 5.0s; }
+
+/* Configuração do movimento da animação */
+@keyframes surgirSubindo {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Volta para a posição original */
+    }
+}
+
+/* ==========================================
+   BARRA DE PROGRESSO DE ENERGIA (SCROLL)
+   ========================================== */
+
+.barra-energia-scroll {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px; /* Altura da barrinha */
+    background: linear-gradient(90deg, #a970ff 0%, #ff4a4a 100%); /* Roxo do Gojo ao Vermelho do Sukuna */
+    box-shadow: 0 0 15px #a970ff, 0 0 5px #ff4a4a;
+    z-index: 99999; /* Fica acima de absolutamente tudo */
+    
+    /* Configuração do tamanho inicial e ponto de partida */
+    transform-origin: left;
+    transform: scaleX(0); /* Começa zerada */
+    
+    /* Vincula o tamanho da barra à rolagem da página */
+    animation: encherBarra linear;
+    animation-timeline: scroll();
+}
+
+@keyframes encherBarra {
+    to {
+        transform: scaleX(1); /* Fica 100% cheia no final da página */
+    }
+}
+
+
